@@ -35,7 +35,7 @@ async function postSale(e) {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      username: 'Lil Trenchers Sales',
+      username: 'Lil Trenchers',
       embeds: [
         {
           title: `${nft.name ?? `Lil Trencher #${nft.identifier}`} sold`,
@@ -78,7 +78,7 @@ export default async function handler(req, res) {
     let newest = Number(lastTs);
 
     for (const e of events) {
-      const key = `lil-trenchers:seen:${e.transaction}:${e.nft?.identifier}`;
+      const key = `lil-trencher:seen:${e.transaction}:${e.nft?.identifier}`;
       const isNew = await redis.set(key, 1, { nx: true, ex: 172800 });
       if (!isNew) continue;
       try {
