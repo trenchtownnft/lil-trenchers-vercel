@@ -38,7 +38,7 @@ async function postSale(e) {
       username: 'Lil Trenchers',
       embeds: [
         {
-          title: `${nft.name ?? `Lil Trencher #${nft.identifier}`} sold`,
+          title: `Lil Trencher #${nft.identifier}`} sold`,
           url: nft.opensea_url,
           color: 0x2ecc71,
           image: { url: nft.display_image_url ?? nft.image_url },
